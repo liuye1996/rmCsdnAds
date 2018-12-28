@@ -7,12 +7,13 @@
 // @match        https://blog.csdn.net/*
 // @match        https://www.csdn.net/*
 // @match        https://bbs.csdn.net/*
+// @run-at       document-end
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(window.onload = function() {
     function isEmpty(str){
-    return str!="undefined"&&str!=null&str!="";
+        return str!="undefined"&&str!=null&str!="";
     }
     $("body").find("div").each(function () {
         var id = $(this).attr("id");
