@@ -1,4 +1,4 @@
-# removeCsdnAdv
+# rmCsdnAdv
 移除csdn页面广告javascript脚本
 
 配合浏览器插件Tampermonkey使用
