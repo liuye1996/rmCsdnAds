@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         removeCsndAds
 // @namespace    https://github.com/liuye1996/removeCsdnAds
-// @version      1.1
+// @version      1.2
 // @description  removeCsndAds v1.0
 // @author       github@liuye1996
 // @match        https://blog.csdn.net/*
 // @match        https://www.csdn.net/*
 // @match        https://bbs.csdn.net/*
+// @match        http://www.runoob.com/*
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
@@ -19,7 +20,7 @@
         $("body").find("div").each(function () {
             var id = $(this).attr("id");
             if(isNotEmpty(id)){
-                var idStr = id.match(/(kp_box_\d{1,4})/);
+                var idStr = id.match(/(kp_box_\d{1,4})|(sidebar-right-ads)/);
                 if (isNotEmpty(idStr)) {
                     $(this).parents("div").each(function(){
                         var boxStr = $(this).attr("class");
