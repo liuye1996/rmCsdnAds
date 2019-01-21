@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         removeCsndAds
+// @name         rmCsndAds
 // @namespace    https://github.com/liuye1996/removeCsdnAds
-// @version      1.2
-// @description  removeCsndAds v1.0
+// @version      1.3
+// @description  rmCsndAds v1.3
 // @author       github@liuye1996
 // @match        https://blog.csdn.net/*
 // @match        https://www.csdn.net/*
@@ -20,7 +20,7 @@
         $("body").find("div").each(function () {
             var id = $(this).attr("id");
             if(isNotEmpty(id)){
-                var idStr = id.match(/(kp_box_\d{1,4})|(sidebar-right-ads)/);
+                var idStr = id.match(/(kp_box_\d{1,4})|(ad-\d{6})/);
                 if (isNotEmpty(idStr)) {
                     $(this).parents("div").each(function(){
                         var boxStr = $(this).attr("class");
@@ -33,7 +33,7 @@
             }
             var adClass = $(this).attr("class");
             if(isNotEmpty(adClass)){
-                var classStr = adClass.match(/(-ad-box)|(fourth_column)|(ad_item)/);
+                var classStr = adClass.match(/(-ad-box)|(fourth_column)|(ad_item)|(ad-\d{6})/);
                 if(isNotEmpty(classStr)){
                     $(this).remove();
                     console.log("remove"+this);
