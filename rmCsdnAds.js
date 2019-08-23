@@ -60,7 +60,7 @@
         });
     }
     function removeBaidu(){
-        $(".result_hidden").find("div").each(function () {
+        $(".cr-content").find("div").each(function () {
             var title = $(this).attr("title");
             if (title == "搜索热点"){
                     $(this).parent().remove();
