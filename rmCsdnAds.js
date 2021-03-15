@@ -66,6 +66,12 @@
                     $(this).parent().remove();
             }
         });
+        $(".FYB_RD").find("div").each(function () {
+            var title = $(this).attr("title");
+            if (title == "百度热榜"){
+                    $(this).parent().remove();
+            }
+        });
     }
     window.onload=function (){
         removeDivAds();
