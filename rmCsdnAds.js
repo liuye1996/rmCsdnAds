@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         rmCsndAds
 // @namespace    https://github.com/liuye1996/removeCsdnAds
-// @version      1.3
-// @description  rmCsndAds v1.3
+// @version      1.4
+// @description  rmCsndAds v1.4
 // @author       github@liuye1996
 // @match        https://blog.csdn.net/*
 // @match        https://www.csdn.net/*
@@ -14,6 +14,9 @@
 // ==/UserScript==
 
 (function() {
+
+    document.body.addEventListener("DOMNodeInserted", removeBaidu, false);
+
     function isNotEmpty(str){
         return str!="undefined"&&str!=null&&str!="";
     }
@@ -62,20 +65,23 @@
     function removeBaidu(){
         $(".cr-content").find("div").each(function () {
             var title = $(this).attr("title");
-            if (title == "搜索热点"){
-                    $(this).parent().remove();
-            }
-        });
-        $(".FYB_RD").find("div").each(function () {
-            var title = $(this).attr("title");
-            if (title == "百度热榜"){
+            if (title == "搜索热点"||title == "百度热榜"||title == "百度热搜"){
                     $(this).parent().remove();
             }
         });
     }
+
     window.onload=function (){
         removeDivAds();
         removeRightAds();
         removeBaidu();
     }
+
 })();
+
+
+
+
+
+
+
